@@ -16,7 +16,7 @@ class FrameController {
       const newFrame = await this.frameService.create({ material, color });
       if ('error' in newFrame) { // Erro oriundo do Zod.
         return res.status(StatusCodes.BAD_REQUEST)
-          .json({ error: newFrame.error.issues[0].message });
+          .json({ error: newFrame.error.issues[0].message }); // Captando a mensagem definida no arquivo [src/Interfaces/Frames].
       }
 
       return res.status(StatusCodes.OK).json(newFrame);

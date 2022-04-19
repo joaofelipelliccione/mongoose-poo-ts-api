@@ -7,7 +7,7 @@ export interface ServiceError {
 }
 
 /*
-- Caso seja necessário a realização de regras de negócio em algum dos métodos (create, read, readOne...),
+- Caso seja necessário a validação de regras de negócio em algum dos métodos (create, read, readOne...),
 elas devem ser feitas nas classes filhas da classe abstrata Service, sobrescrevendo os métodos. 
 */
 abstract class Service<T> {
@@ -24,6 +24,14 @@ abstract class Service<T> {
   public async readOne(id: string): Promise<T | null | ServiceError> {
     return this.model.readOne(id);
   }
+
+  // public async update(): Promise<T[]> {
+  //   return this.model.update();
+  // }
+
+  // public async delete(id: string): Promise<T | null | ServiceError> {
+  //   return this.model.delete(id);
+  // }
 }
 
 export default Service;
