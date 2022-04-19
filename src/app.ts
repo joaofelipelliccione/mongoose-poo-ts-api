@@ -22,7 +22,7 @@ class App {
 
   private routes(): void { // Método responsável pela disponibilização das rotas da API.
     this.app.use('/ping', pingRoutes);
-    this.app.use('/frame', frameRoutes);
+    this.app.use('/frames', frameRoutes);
   }
 
   public start(PORT: string | number): void { // Método que "sobe" o servidor. Esse que será chamado no arquivo server.ts
