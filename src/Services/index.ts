@@ -6,6 +6,10 @@ export interface ServiceError {
   error: ZodError;
 }
 
+/*
+- Caso seja necessário a realização de regras de negócio em algum dos métodos (create, read, readOne...),
+elas devem ser feitas nas classes filhas da classe abstrata Service, sobrescrevendo os métodos. 
+*/
 abstract class Service<T> {
   constructor(protected model: Model<T>) { }
 
