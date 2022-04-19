@@ -13,11 +13,12 @@ class FrameService extends Service<Frame> {
   - Isso ocorre pois o método create() valida uma regra da negócio
   que não se aplica aos outros métodos.
   */
-  create = async (obj: Frame): Promise<Frame | ServiceError | null> => {
+  create = async (obj: Frame): Promise<Frame | ServiceError> => {
     const parsed = FrameSchema.safeParse(obj); // É nesse ponto que as validações de tipo, n° de caracteres e campo, definidas com ajuda do Zod no FrameSchema, são realizadas.
     if (!parsed.success) {
       return { error: parsed.error };
     }
+
     return this.model.create(obj);
   };
 }

@@ -1,4 +1,3 @@
-// src/Interfaces/Lens.ts
 import { z } from 'zod';
 
 const lensSchema = z.object({

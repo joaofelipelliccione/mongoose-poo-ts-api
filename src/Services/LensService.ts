@@ -7,11 +7,12 @@ class LensService extends Service<Lens> {
     super(model);
   }
 
-  create = async (obj: Lens): Promise<Lens | ServiceError | null> => {
+  create = async (obj: Lens): Promise<Lens | ServiceError> => {
     const parsed = lensSchema.safeParse(obj);
     if (!parsed.success) {
       return { error: parsed.error };
     }
+
     return this.model.create(obj);
   };
 }

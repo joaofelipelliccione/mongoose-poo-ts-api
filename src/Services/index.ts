@@ -13,7 +13,7 @@ elas devem ser feitas nas classes filhas da classe abstrata Service, sobrescreve
 abstract class Service<T> {
   constructor(protected model: Model<T>) { }
 
-  public async create(obj: T): Promise<T | null | ServiceError> {
+  public async create(obj: T): Promise<T | ServiceError> {
     return this.model.create(obj);
   }
 
