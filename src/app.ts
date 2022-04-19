@@ -3,6 +3,7 @@ import connection from './Models/connection';
 
 import pingRoutes from './Routes/pingRoutes';
 import frameRoutes from './Routes/frameRoutes';
+import lensRoutes from './Routes/lensRoutes';
 
 class App {
   public app: express.Express;
@@ -23,6 +24,7 @@ class App {
   private routes(): void { // Método responsável pela disponibilização das rotas da API.
     this.app.use('/ping', pingRoutes);
     this.app.use('/frames', frameRoutes);
+    this.app.use('/lens', lensRoutes);
   }
 
   public start(PORT: string | number): void { // Método que "sobe" o servidor. Esse que será chamado no arquivo server.ts
